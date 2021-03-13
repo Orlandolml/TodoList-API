@@ -19,10 +19,10 @@ app.use(
   myConnection(
     mysql,
     {
-      host: "localhost",
+      port: 3306,
       user: "root",
       password: "root",
-      port: 3306,
+      host: "localhost",
       database: "todo_list_app",
     },
     "single"
@@ -33,6 +33,6 @@ app.use(bodyParser.json());
 
 app.use("/", routes);
 
-app.listen(3000, () => console.log("Server is listening on port 3000"));
+app.listen(5000, () => console.log("Server is listening on port 5000"));
 
 app.use(errorHandler);
