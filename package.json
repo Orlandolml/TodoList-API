@@ -4,6 +4,7 @@
   "description": "Todo Rest Api",
   "main": "src/app.js",
   "scripts": {
+    "start": "node .",
     "dev": "nodemon src/app.js"
   },
   "author": "Orlando Martinez Guillen",
