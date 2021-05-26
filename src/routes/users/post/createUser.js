@@ -8,6 +8,7 @@ module.exports = async (req, res, next) => {
     userBody.password = await bcrypt.hash(password, 10);
 
     req.getConnection((error, conn) => {
+      console.log(userBody, "USER BODY");
       if (error) {
         return next(error);
       } else {
@@ -18,6 +19,7 @@ module.exports = async (req, res, next) => {
             if (error) {
               return next(error);
             } else {
+              console.log(insertedUser, "INSERTED USER");
               conn.query(
                 "SELECT * FROM users WHERE id = ?",
                 [insertedUser.insertId],
