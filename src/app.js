@@ -19,10 +19,10 @@ app.use(
     mysql,
     {
       port: process.env.PORT,
-      user: process.env.DB_NAME,
-      password: process.env.DB_PASSWORD,
-      host: process.env.DB_HOST,
-      database: process.env.DB_NAME,
+      user: "b2f30ce7f56fdb",
+      password: "28e3baa4",
+      host: "us-cdbr-east-03.cleardb.com",
+      database: "heroku_a9576ac2ef67aab",
     },
     "single"
   )
