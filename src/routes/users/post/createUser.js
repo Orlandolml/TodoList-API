@@ -1,14 +1,14 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-module.exports = async (req, res, next) => {
+module.exports = (req, res, next) => {
   try {
     const userBody = req.body;
     let password = userBody.password;
     userBody.password = await bcrypt.hash(password, 10);
 
     req.getConnection((error, conn) => {
-      console.log(userBody, "USER BODY");
+      console.log(conn, "conection mysql");
       if (error) {
         return next(error);
       } else {
@@ -19,11 +19,10 @@ module.exports = async (req, res, next) => {
             if (error) {
               return next(error);
             } else {
-              console.log(insertedUser, "INSERTED USER");
               conn.query(
                 "SELECT * FROM users WHERE id = ?",
                 [insertedUser.insertId],
-                async (error, user) => {
+                (error, user) => {
                   if (error) {
                     return next(error);
                   } else {
