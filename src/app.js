@@ -18,8 +18,8 @@ app.use(
   myConnection(
     mysql,
     {
-      port: process.env.PORT || 5000,
-      user: process.env.DB_USER,
+      port: process.env.PORT,
+      user: process.env.DB_NAME,
       password: process.env.DB_PASSWORD,
       host: process.env.DB_HOST,
       database: process.env.DB_NAME,
@@ -34,6 +34,6 @@ app.use("/", routes);
 
 app.use(errorHandler);
 
-app.listen(process.env.PORT || 5000, () =>
-  console.log(`Server is listening on port ${process.env.PORT || 5000}`)
+app.listen(process.env.PORT, () =>
+  console.log(`Server is listening on port ${process.env.PORT}`)
 );
