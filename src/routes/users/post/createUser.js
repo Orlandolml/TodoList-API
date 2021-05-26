@@ -8,7 +8,6 @@ module.exports = async (req, res, next) => {
     userBody.password = await bcrypt.hash(password, 10);
 
     req.getConnection((error, conn) => {
-      console.log(conn, "conection mysql");
       if (error) {
         return next(error);
       } else {
