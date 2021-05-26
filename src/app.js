@@ -30,6 +30,7 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+app.get("/", (req, res) => res.json({ greeting: "hello world!" }));
 app.use("/", routes);
 
 app.use(errorHandler);
