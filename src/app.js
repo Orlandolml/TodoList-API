@@ -2,7 +2,6 @@ const cors = require("cors");
 const mysql = require("mysql");
 const morgan = require("morgan");
 const routes = require("./routes");
-const dotenv = require("dotenv").config();
 const myConnection = require("express-myconnection");
 
 const express = require("express");
@@ -35,4 +34,6 @@ app.use("/", routes);
 
 app.use(errorHandler);
 
-app.listen(process.env.PORT || 5000, () => console.log("Server is listening"));
+app.listen(process.env.PORT || 5000, () =>
+  console.log(`Server is listening on port ${process.env.PORT || 5000}`)
+);
