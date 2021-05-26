@@ -24,7 +24,7 @@ app.use(
       host: "us-cdbr-east-03.cleardb.com",
       database: "heroku_a9576ac2ef67aab",
     },
-    "single"
+    "pool"
   )
 );
 app.use(express.json());
