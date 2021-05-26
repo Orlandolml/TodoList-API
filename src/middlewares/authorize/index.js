@@ -7,9 +7,8 @@ module.exports = (req, res, next) => {
   if (token) {
     token = token.split(" ")[1];
     try {
-      res.status(200);
       req.getConnection((error, conn) => {
-        const userId = jwt.verify(token, "secret key").userId;
+        const userId = jwt.verify(token, process.env.JWT_SECRET_KEY).userId;
         conn.query(
           "SELECT * FROM users WHERE id = ?",
           [userId],
@@ -20,6 +19,7 @@ module.exports = (req, res, next) => {
               });
             }
             req.locals.user = user[0];
+            res.status(200);
             next();
           }
         );

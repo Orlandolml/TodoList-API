@@ -1,6 +1,7 @@
-module.exports = async (err, req, res, next) => {
+module.exports = async (error, req, res, next) => {
   try {
-    if (err.code === "ER_DUP_ENTRY") {
+    console.log(error);
+    if (error.code === "ER_DUP_ENTRY") {
       res.json({
         error: {
           message:
@@ -9,7 +10,7 @@ module.exports = async (err, req, res, next) => {
       });
     } else {
       res.json({
-        error: err,
+        error,
       });
     }
   } catch (error) {

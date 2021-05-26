@@ -1,4 +1,4 @@
 module.exports = {
-  readUsers: require("./readUsers"),
+  readUser: require("./readUser"),
   validateToken: require("./token"),
 };

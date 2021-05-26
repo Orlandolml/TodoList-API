@@ -27,7 +27,13 @@ module.exports = async (req, res, next) => {
                   } else {
                     res.json({
                       success: true,
-                      token: jwt.sign({ userId: user.id }, "secret key"),
+                      token: jwt.sign(
+                        { userId: user[0].id },
+                        process.env.JWT_SECRET_KEY,
+                        {
+                          expiresIn: 60 * 60 * 6,
+                        }
+                      ),
                     });
                   }
                 }

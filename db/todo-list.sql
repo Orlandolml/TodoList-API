@@ -14,20 +14,28 @@ CREATE TABLE users(
     PRIMARY KEY (id)
 );
 
-/*
-   * Todo status
-   * status 1 = uncompleted,
-   * status 2 = completed,
-   * status 3 = deleted
-*/
-
 CREATE TABLE todos(
     id INTEGER NOT NULL AUTO_INCREMENT,
     task VARCHAR(255) NOT NULL,
-    createdAt TIMESTAMP NOT NULL,
-    finishedAt TIMESTAMP,
-    status TINYINT NOT NULL DEFAULT 1,
-    userId INTEGER NOT  NULL,
+    iv VARCHAR(255) NOT NULL,
+    userId INTEGER NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (userId) REFERENCES  users (id)
 );
+/*
+   * Todo status
+   * status 1 = uncompleted,
+   * status 2 = deleted
+*/
+
+CREATE TABLE scheduledTask(
+    id INTEGER NOT NULL AUTO_INCREMENT,
+    status INTEGER DEFAULT 1,
+    userId INTEGER NOT NULL,
+    iv VARCHAR(255) NOT NULL,
+    task VARCHAR(255) NOT NULL,
+    createdAt TIMESTAMP NOT NULL,
+    finishedAt TIMESTAMP,
+    PRIMARY KEY (id),
+    FOREIGN KEY (userId) REFERENCES users (id)
+)

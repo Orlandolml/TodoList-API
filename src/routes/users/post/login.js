@@ -24,8 +24,15 @@ module.exports = (req, res, next) => {
               if (bcrypt.compare(userBody.password, data.password)) {
                 res.json({
                   success: true,
-                  token: jwt.sign({ userId: data.id }, "secret key"),
+                  token: jwt.sign(
+                    { userId: data.id },
+                    process.env.JWT_SECRET_KEY,
+                    {
+                      expiresIn: 60 * 60 * 6,
+                    }
+                  ),
                 });
+                next();
               }
             }
           }

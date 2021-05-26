@@ -2,7 +2,7 @@
   "name": "todo-api",
   "version": "1.0.0",
   "description": "Todo Rest Api",
-  "main": "index.js",
+  "main": "src/app.js",
   "scripts": {
     "dev": "nodemon src/app.js"
   },
@@ -12,6 +12,8 @@
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
     "compose-middleware": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-myconnection": "^1.0.4",
     "jsonwebtoken": "^8.5.1",

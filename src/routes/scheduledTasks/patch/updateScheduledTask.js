@@ -1,5 +1,5 @@
 module.exports = (req, res, next) => {
-  const { todoId } = req.params;
+  const { taskId } = req.params;
   const userId = req.locals.user.id;
   const { iv, encrypted } = req.locals;
   try {
@@ -8,15 +8,15 @@ module.exports = (req, res, next) => {
         return next(error);
       }
       conn.query(
-        "UPDATE todos SET iv = ?, task = ? WHERE id = ? AND userId = ?",
-        [iv, encrypted, todoId, userId],
+        "UPDATE scheduledTask SET iv = ?, task = ? WHERE id = ? AND userId = ?",
+        [iv, encrypted, taskId, userId],
         (error) => {
           if (error) {
             return next(error);
           }
           conn.query(
-            "SELECT * FROM todos WHERE id = ?",
-            [todoId],
+            "SELECT * FROM scheduledTask WHERE id = ?",
+            [taskId],
             (error, todo) => {
               if (error) {
                 return next(error);
