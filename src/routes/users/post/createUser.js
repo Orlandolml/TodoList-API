@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt");
-const pool = require("../../pool");
 const jwt = require("jsonwebtoken");
+const pool = require("../../../pool");
 
 module.exports = async (req, res, next) => {
   try {
@@ -12,7 +12,7 @@ module.exports = async (req, res, next) => {
       if (error) {
         return next(error);
       } else {
-        conn.query(
+        pool.query(
           "SELECT * FROM users WHERE id = ?",
           [insertedUser.insertId],
           (error, user) => {
