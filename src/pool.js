@@ -1,4 +1,4 @@
-const mysql = require("mysql");
+/*const mysql = require("mysql");
 
 let pool = mysql.createC({
   connectionLimit: 10,
@@ -28,3 +28,4 @@ pool.getConnection((error, conn) => {
 });
 
 module.exports = pool;
+*/
