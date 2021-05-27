@@ -28,15 +28,9 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-let reqConnection = connection.connect();
-
 app.use("/", routes);
 app.use(errorHandler);
 
 app.listen(process.env.PORT, () =>
   console.log(`Server is listening on port ${process.env.PORT}`)
 );
-
-module.exports = {
-  connection: reqConnection,
-};
