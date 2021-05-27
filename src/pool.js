@@ -1,6 +1,6 @@
 const mysql = require("mysql");
 
-let pool = mysql.createPool({
+let pool = mysql.createC({
   connectionLimit: 10,
   port: process.env.PORT,
   user: "b2f30ce7f56fdb",
