@@ -13,7 +13,7 @@ app.use(
   myConnection(
     mysql,
     {
-      port: process.env.PORT_DB,
+      port: 3306,
       user: "uyzg3ncerjmbpvgk",
       password: "j1WD96hFbw2CxUXkJynM",
       host: "bqbvr2fmf5brtjqhuaky-mysql.services.clever-cloud.com",
