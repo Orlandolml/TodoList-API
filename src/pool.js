@@ -1,5 +1,4 @@
 const mysql = require("mysql");
-const errorHandler = require("../middlewares/errorHandler");
 
 let pool = mysql.createPool({
   connectionLimit: 10,
