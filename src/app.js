@@ -10,7 +10,7 @@ const app = express();
 app.set("port", process.env.PORT);
 
 let connection = mysql.createConnection({
-  port: process.env.PORT,
+  port: 3306,
   user: "uyzg3ncerjmbpvgk",
   password: "j1WD96hFbw2CxUXkJynM",
   host: "bqbvr2fmf5brtjqhuaky-mysql.services.clever-cloud.com",
