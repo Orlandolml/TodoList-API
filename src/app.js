@@ -24,7 +24,7 @@ app.use(express.urlencoded({ extended: false }));
 
 connection.connect();
 
-app.get("/users", (req, res) => {
+app.get("/", (req, res) => {
   connection.query("SELECT * FROM users", (error, user) => {
     if (error) {
       res.json(error);
