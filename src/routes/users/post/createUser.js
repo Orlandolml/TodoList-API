@@ -1,6 +1,5 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const { connection } = require("../../../app");
 
 module.exports = async (req, res, next) => {
   try {
