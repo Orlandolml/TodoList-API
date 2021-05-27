@@ -10,7 +10,6 @@ const app = express();
 app.set("port", process.env.PORT);
 
 let connection = mysql.createConnection({
-  connectionLimit: 10,
   port: process.env.PORT,
   user: "b2f30ce7f56fdb",
   password: "28e3baa4",
@@ -20,7 +19,7 @@ let connection = mysql.createConnection({
 
 // Middlewares and Mysql connection
 app.use(cors());
-app.use(morgan("dev"));
+//app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
