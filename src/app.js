@@ -24,6 +24,8 @@ app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+connection.connect();
+
 app.get("/users", (req, res) => {
   connection.query("SELECT * FROM users", (error, user) => {
     if (error) {
