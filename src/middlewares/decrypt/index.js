@@ -20,7 +20,7 @@ module.exports = (todos, req, res) => {
             );
 
             let decrypted = "";
-            decipher.on("readable", () => {
+            decipher.on("readable", (chunk) => {
               while (null !== (chunk = decipher.read())) {
                 decrypted += chunk.toString("utf8");
               }
