@@ -18,7 +18,8 @@ module.exports = (req, res, next) => {
               (error, todo) => {
                 if (error) {
                   next(error);
-                } else if (todo[0]) {
+                }
+                if (todo[0]) {
                   res.json({
                     success: true,
                     todo: todo[0],
