@@ -13,11 +13,11 @@ app.use(
   myConnection(
     mysql,
     {
-      port: process.env.PORT_DB,
-      user: process.env.DB_USER,
-      password: process.env.DB_PASSWORD,
-      host: process.env.DB_HOST,
-      database: process.env.DB_NAME,
+      port: /*process.env.PORT_DB*/ 5000,
+      user: /*process.env.DB_USER*/ "root",
+      password: /*process.env.DB_PASSWORD*/ "root",
+      host: /*process.env.DB_HOST*/ "localhost",
+      database: /*process.env.DB_NAME*/ "todo_list_app",
     },
     "single"
   )
@@ -32,5 +32,5 @@ app.use("/", routes);
 app.use(errorHandler);
 
 app.listen(process.env.PORT, () =>
-  console.log(`Server is listening on port ${process.env.PORT}`)
+  console.log(`Server is listening on port ${5000}`)
 );
