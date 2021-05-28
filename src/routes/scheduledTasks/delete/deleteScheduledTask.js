@@ -19,12 +19,12 @@ const handler = (req, res, next) => {
             } else if (deletedTodo.affectedRows > 0) {
               res.json({
                 success: true,
-                message: "Todo deleted successfully!",
+                message: "Task deleted successfully!",
               });
             } else {
               next({
                 success: false,
-                message: "There is no task with that id",
+                message: "There is no Task with that id",
               });
             }
           }

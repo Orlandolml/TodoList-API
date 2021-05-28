@@ -20,13 +20,10 @@ module.exports = (req, res, next) => {
                   next(error);
                 }
                 if (todo[0]) {
-                  console.log(todo[0]);
                   res.json({
                     success: true,
                     todo: todo[0],
                   });
-                } else {
-                  next(error);
                 }
               }
             );

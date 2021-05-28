@@ -21,10 +21,12 @@ module.exports = (req, res, next) => {
               if (error) {
                 return next(error);
               }
-              res.json({
-                success: true,
-                payload: todo[0],
-              });
+              if (todo[0]) {
+                res.json({
+                  success: true,
+                  payload: todo[0],
+                });
+              }
             }
           );
         }
