@@ -7,7 +7,7 @@ const errorHandler = require("./middlewares/errorHandler");
 
 const app = express();
 
-app.set("port", process.env.PORT);
+app.set("port", 5000);
 
 app.use(
   myConnection(
