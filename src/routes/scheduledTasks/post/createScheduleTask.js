@@ -14,7 +14,7 @@ module.exports = (req, res, next) => {
             return next(error);
           } else {
             conn.query(
-              "SELECT * FROM scheduledTask WHERE id = ?",
+              "SELECT id, status, userId, createdAt FROM scheduledTask WHERE id = ?",
               [newTodo.insertId],
               (error, todo) => {
                 if (error) {
@@ -22,7 +22,7 @@ module.exports = (req, res, next) => {
                 } else {
                   res.json({
                     success: true,
-                    todo: todo[0],
+                    todo: { ...todo[0], task: req.body.task },
                   });
                 }
               }
