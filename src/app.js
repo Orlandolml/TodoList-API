@@ -14,10 +14,10 @@ app.use(
     mysql,
     {
       port: process.env.PORT_DB,
-      user: "uyzg3ncerjmbpvgk",
-      password: "j1WD96hFbw2CxUXkJynM",
-      host: "bqbvr2fmf5brtjqhuaky-mysql.services.clever-cloud.com",
-      database: "bqbvr2fmf5brtjqhuaky",
+      user: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
+      host: process.env.DB_HOST,
+      database: process.env.DB_NAME,
     },
     "single"
   )
