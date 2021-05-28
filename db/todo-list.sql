@@ -10,6 +10,7 @@ CREATE TABLE users(
 
 CREATE TABLE todos(
     id INTEGER NOT NULL AUTO_INCREMENT,
+    status INTEGER DEFAULT 1,
     task VARCHAR(255) NOT NULL,
     iv VARCHAR(255) NOT NULL,
     userId INTEGER NOT NULL,
@@ -19,7 +20,8 @@ CREATE TABLE todos(
 /*
    * Todo status
    * status 1 = uncompleted,
-   * status 2 = deleted
+   * status 2 = completed
+   * status 3 = deleted
 */
 
 CREATE TABLE scheduledTask(
