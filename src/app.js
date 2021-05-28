@@ -24,7 +24,7 @@ app.use(
 );
 
 // Middlewares and Mysql connection
-app.use(cors({ origin: "http:localhost:300" }));
+app.use(cors({ origin: "http:localhost:3000" }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
