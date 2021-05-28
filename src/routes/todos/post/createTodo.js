@@ -21,7 +21,7 @@ module.exports = (req, res, next) => {
                 } else if (todo[0]) {
                   res.json({
                     success: true,
-                    todo: todo[0],
+                    todo: { ...todo[0], task: req.body.task },
                   });
                 }
               }
