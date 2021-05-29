@@ -1,5 +1,7 @@
+require("dotenv").config();
 const cors = require("cors");
 const mysql = require("mysql");
+const morgan = require("morgan");
 const express = require("express");
 const routes = require("./routes");
 const myConnection = require("express-myconnection");
@@ -25,6 +27,7 @@ app.use(
 
 // Middlewares and Mysql connection
 app.use(cors());
+app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
