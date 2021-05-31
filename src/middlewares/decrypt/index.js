@@ -3,7 +3,7 @@ const crypto = require("crypto");
 module.exports = (todos, req, res) => {
   //Convert for function to work
   Promise.allSettled(
-    todos.reverse().map((todo) => {
+    todos.map((todo) => {
       return new Promise((res, rej) => {
         todo.iv = Uint8Array.from(todo.iv.split(","));
         crypto.scrypt(
@@ -26,7 +26,11 @@ module.exports = (todos, req, res) => {
               }
             });
             decipher.on("end", () => {
-              res(decrypted);
+              delete todo.iv;
+              res({
+                ...todo,
+                task: decrypted,
+              });
             });
             decipher.write(todo.task, "hex");
             decipher.end();
@@ -38,6 +42,6 @@ module.exports = (todos, req, res) => {
     let todos = todosDecrypted.map((todo) => {
       return todo.value;
     });
-    res.json({ success: true, todos });
+    res.json({ success: true, todos: todos });
   });
 };

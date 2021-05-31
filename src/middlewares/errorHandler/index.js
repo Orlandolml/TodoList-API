@@ -1,6 +1,5 @@
 module.exports = async (error, req, res, next) => {
   try {
-    console.log(error);
     if (error.code === "ER_DUP_ENTRY") {
       res.json({
         error: {

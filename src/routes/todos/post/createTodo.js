@@ -13,7 +13,7 @@ module.exports = (req, res, next) => {
             return next(error);
           } else {
             conn.query(
-              "SELECT id, task, status, userId FROM todos WHERE id = ?",
+              "SELECT id, status FROM todos WHERE id = ?",
               [newTodo.insertId],
               (error, todo) => {
                 if (error) {

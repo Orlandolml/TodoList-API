@@ -10,7 +10,7 @@ const handler = (req, res, next) => {
         return next(error);
       } else {
         conn.query(
-          "SELECT * FROM todos WHERE userId = ?",
+          "SELECT id, task, iv, status FROM todos WHERE userId = ? ORDER BY id ASC",
           [userId],
           (error, todos) => {
             if (error) {

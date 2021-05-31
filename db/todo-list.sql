@@ -1,3 +1,9 @@
+DROP DATABASE IF EXISTS todo_list_app;
+
+CREATE DATABASE todo_list_app;
+
+USE todo_list_app;
+
 CREATE TABLE users(
     id INTEGER NOT NULL AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
